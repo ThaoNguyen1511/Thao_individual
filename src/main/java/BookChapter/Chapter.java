@@ -13,10 +13,17 @@ public class Chapter implements Comparable<Chapter>{
             throw  new IllegalArgumentException("Chapter Name or levels of chapters is invalid ");
         }
     }
+    public String getChapterName(){
+        return chapterName;
+    }
+    public String getNumber(){
+        return number;
+    }
 
     @Override
     public boolean equals(Object o){
-       return false;
+        Chapter c = (Chapter)o;
+        return (this.getChapterName().equals(c.getChapterName() )&& this.getNumber().equals(c.getNumber()));
     }
     @Override
     public int hashCode(){
