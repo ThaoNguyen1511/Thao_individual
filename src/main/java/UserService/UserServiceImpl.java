@@ -6,7 +6,9 @@ public class UserServiceImpl {
 
     public void assignPassword(User user) throws Exception
     {
-
+        String passwordMd5 = securityService.md5(user.getPassword());
+        user.setPassword(passwordMd5);
+        userDAO.updateUser(user);
     }
     public UserServiceImpl(UserDAO dao, SecurityService security)
     {

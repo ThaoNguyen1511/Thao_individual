@@ -15,9 +15,11 @@ public class UserServiceImplTest {
         User user = mock(User.class);
         UserServiceImpl userServiceImpl = new UserServiceImpl(userDao,securityService);
 
+        when(user.getPassword()).thenReturn("MyPassword");
         userServiceImpl.assignPassword(user);
 
-        verify(user).getPassword();
+        verify(user).setPassword(any());
+        verify(userDao).updateUser(user);
 
     }
 }
