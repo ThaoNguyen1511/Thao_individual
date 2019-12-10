@@ -34,4 +34,20 @@ public class Book {
         Set<Chapter> clonedSet = new HashSet<>(clonedList);
         return clonedSet;
     }
+    public void setChapters(ArrayList<Chapter> chapters)
+    {
+        this.chapters = chapters;
+    }
+    public String getBookName()
+    {
+        return bookName;
+    }
+    public String getAuthor()
+    {
+        return author;
+    }
+    public ArrayList<Chapter> getChapters()
+    {
+        return chapters;
+    }
 }
