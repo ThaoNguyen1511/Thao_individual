@@ -9,7 +9,7 @@ public class Book {
 
 
     public Book(String author,String bookName) throws  IllegalArgumentException{
-        if(author ==null||bookName ==null){
+        if(author ==null||author ==""||bookName ==null||bookName ==""){
             throw  new IllegalArgumentException("Invalid BookName or Author");
         }
         else{
