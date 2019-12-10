@@ -1,11 +1,7 @@
-import BookChapter.Book;
-import BookChapter.Chapter;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.Assert.*;
+import java.util.*;
+import  BookChapter.*;
 
 public class BookTest {
     private String validBookName = "Never Eat alone";
@@ -23,16 +19,17 @@ public class BookTest {
         Book b = new Book(validAuthor,inValidBookName);
     }
     @Test(expected = IllegalArgumentException.class)
-    public void setInvalidAuthorShouldThrowException()
-    {
+    public void setInvalidAuthorShouldThrowException(){
         Book b = new Book(inValidAuthor,validBookName);
     }
     @Test
     public void setValidBookNameAndAuthorShouldBeSuccess(){
+        String expectedBookName = validBookName;
+        String expectedAuthor = validAuthor;
         Book b = new Book (validAuthor,validBookName);
 
-        Assert.assertEquals("Valid book is not added with valid BookName",validBookName,b.getBookName());
-        Assert.assertEquals("Valid book is not added with valid BookName",validAuthor,b.getAuthor());
+        Assert.assertEquals("Valid book is not added with valid BookName",expectedBookName,b.getBookName());
+        Assert.assertEquals("Valid book is not added with valid BookName",expectedAuthor,b.getAuthor());
     }
     @Test
     public void listOfChaptersShouldBeAddedSuccessfulToBook(){
@@ -70,6 +67,24 @@ public class BookTest {
         b.addChapterToBook(chapterName,chapterNumber);
         b.addChapterToBook(chapterName1,chapterNumber1);
     }
+    @Test
+    public void tableOfContentShouldBeSortedSuccessful() {
+        ArrayList<Chapter> chapterList = new ArrayList<>();
+        Book b = new Book(validAuthor,validBookName);
+        Chapter c = new Chapter("Introduction","1.1");
+        Chapter c1 = new Chapter("Foreword","2.1");
+        Chapter c2 = new Chapter("Eat alone","3.1");
+        Chapter c3 = new Chapter("About author","4.1");
+        chapterList.add(c);
+        chapterList.add(c1);
+        chapterList.add(c2);
+        chapterList.add(c3);
+        Collections.sort(chapterList);
+        Set<Chapter> expectedResult = new HashSet<>(chapterList);
 
+        //act
+        b.setChapters(chapterList);
+        Set<Chapter> actualResult = b.getTableOfContents();
 
+    }
 }

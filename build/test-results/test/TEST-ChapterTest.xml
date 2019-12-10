@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ChapterTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-12-10T22:41:42" hostname="DESKTOP-9FNDKNR" time="0.016">
+<testsuite name="ChapterTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-12-10T22:44:39" hostname="DESKTOP-9FNDKNR" time="0.016">
   <properties/>
   <testcase name="setInvalidChapterNumberShouldThrowException" classname="ChapterTest" time="0.003"/>
-  <testcase name="setInvalidChapterNameAndInvalidNumberShouldThrowException" classname="ChapterTest" time="0.007"/>
+  <testcase name="setInvalidChapterNameAndInvalidNumberShouldThrowException" classname="ChapterTest" time="0.009"/>
   <testcase name="validChapterShouldBeSetSuccessful" classname="ChapterTest" time="0.0"/>
-  <testcase name="setInvalidChapterNameShouldThrowException" classname="ChapterTest" time="0.0"/>
+  <testcase name="setInvalidChapterNameShouldThrowException" classname="ChapterTest" time="0.001"/>
   <testcase name="testEqualChaptersShouldBeSuccess" classname="ChapterTest" time="0.0"/>
-  <testcase name="testCompareToOfTwoChaptersShouldBeSuccess" classname="ChapterTest" time="0.0"/>
+  <testcase name="testCompareToOfTwoChaptersShouldBeSuccess" classname="ChapterTest" time="0.001"/>
   <testcase name="twoDifferentChapterShouldNotBeEqual" classname="ChapterTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
