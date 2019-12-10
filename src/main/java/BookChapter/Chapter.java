@@ -4,14 +4,16 @@ public class Chapter implements Comparable<Chapter>{
     public String chapterName;
     public String number;
 
-    public Chapter(String chapterName, String chapterNum){
+    public Chapter(String chapterName, String chapterNum) throws IllegalArgumentException{
         if (chapterName != "" && chapterName != null && chapterNum.matches("\\d+.\\d+")){
             this.chapterName = chapterName;
             this.number = chapterNum;
         }
         else{
             throw  new IllegalArgumentException("Chapter Name or levels of chapters is invalid ");
+
         }
+
     }
     public String getChapterName(){
         return chapterName;
