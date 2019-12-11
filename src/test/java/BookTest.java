@@ -85,6 +85,8 @@ public class BookTest {
         //act
         b.setChapters(chapterList);
         Set<Chapter> actualResult = b.getTableOfContents();
+        Assert.assertEquals(expectedResult,actualResult);
+
 
     }
 }
