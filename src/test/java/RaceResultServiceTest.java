@@ -25,5 +25,13 @@ public class RaceResultServiceTest {
             raceResults.send(message);
 
             verify(clientA).receive(message);
-            verify(clientB).receive(message);    }
+            verify(clientB).receive(message);
+    }
+    @Test
+    public void notSubscribedClientShouldNotReceiveMessage() {
+            raceResults.send(message);
+            verify(clientA, never()).receive(message);
+            verify(clientB, never()).receive(message);
+    }
+
 }
