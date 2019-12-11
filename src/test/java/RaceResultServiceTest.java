@@ -15,4 +15,17 @@ public class RaceResultServiceTest {
             raceResults.send(message);
             verify(client).receive(message);
         }
-    }
+
+    @Test
+    public void messageShouldBeSentToAllSubscribedClients() {
+            RaceResultsService raceResults = new RaceResultsService();
+            Client clientA = mock(Client.class, "clientA");
+            Client clientB = mock(Client.class, "clientB");
+            Message message = mock(Message.class);
+            raceResults.addSubscriber(clientA);
+            raceResults.addSubscriber(clientB);
+            raceResults.send(message);
+            
+            verify(clientA).receive(message);
+            verify(clientB).receive(message);    }
+}
