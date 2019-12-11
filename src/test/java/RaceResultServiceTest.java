@@ -22,6 +22,8 @@ public class RaceResultServiceTest {
     // zero subscribers
     @Test
     public void notSubscribedClientShouldNotReceiveMessage() {
+//        when(message.getDate()).thenReturn(LocalDate.now());
+//        when(message.getMessage()).thenReturn("Test");
         raceResults.send(message,null);
 
         verify(clientA, never()).receive(message);

@@ -47,7 +47,7 @@ public class RaceResultsService {
                     break;
             }
         }
-        log.log(message.getDate(),message.getMessage());
+         log.log(message.getDate(),message.getMessage());
         for (Client client : clients) {
             client.receive(message);
         }
