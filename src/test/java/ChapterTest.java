@@ -8,7 +8,9 @@ public class ChapterTest {
     private String validChapterName = "Introduction";
     private String validChapterNumber = "1.1";
     private String inValidChapterName = "";
+   // private String inValidChapterNumber = "02.1";
     private String inValidChapterNumber = "2.1.1";
+
 
     @Test(expected = IllegalArgumentException.class)
     public void setInvalidChapterNumberShouldThrowException() {

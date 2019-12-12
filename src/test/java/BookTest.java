@@ -86,6 +86,7 @@ public class BookTest {
         b.setChapters(chapterList);
         Set<Chapter> actualResult = b.getTableOfContents();
         Assert.assertEquals(expectedResult,actualResult);
+        //Assert.assertEquals("1.1",chapterList.get(0).getNumber());
 
 
     }
