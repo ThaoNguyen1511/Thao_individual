@@ -1,11 +1,19 @@
+import School_Course.Course;
+import School_Course.School;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class SchoolTest {
     private String validSchoolName = "Fontys UAS";
-    private String inValidSchoolName = "";
-    @Test
+    private String inValidSchoolName = null;
+    private String validOpeningDate = "10-09-2019";
+    private String inValidOpeningDate = null;
+    private ArrayList<Course> courses = new ArrayList<Course>();
+
+    @Test(expected = IllegalArgumentException.class)
     public void inValidSchoolNameShouldThrowsException(){
-        School school = new School(inValidSchoolName);
+        School school = new School(inValidSchoolName, validOpeningDate,courses);
     }
     @Test
     public void validSchoolNameShouldNotThrowException(){
