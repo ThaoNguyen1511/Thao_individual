@@ -3,9 +3,9 @@ package School_Course;
 import java.time.LocalDate;
 
 public class Course {
-    private String courseName;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    public String courseName;
+    public LocalDate startDate;
+    public LocalDate endDate;
     public Course(String name, LocalDate startDate, LocalDate endDate) throws CourseDateException{
         this.courseName = name;
         if(startDate.compareTo(endDate)>0){
@@ -18,5 +18,6 @@ public class Course {
     }
 
     private class CourseDateException extends Exception {
+
     }
 }
