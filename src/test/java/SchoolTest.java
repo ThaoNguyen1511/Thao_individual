@@ -10,7 +10,11 @@ public class SchoolTest {
     private String inValidSchoolName = null;
     private LocalDate validOpeningDate = LocalDate.of(2019,10,9);
     private LocalDate inValidOpeningDate = null;
+
     private ArrayList<Course> courses = new ArrayList<Course>();
+
+    public SchoolTest()  {
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void inValidSchoolNameShouldThrowsException(){
@@ -29,9 +33,18 @@ public class SchoolTest {
         School school = new School(inValidSchoolName, inValidOpeningDate,courses);
     }
 
-    @Test
-    public void addExistCourseToSchoolShouldThrowException(){
+    @Test(expected = Course.CourseDateException.class)
+    public void addExistCourseToSchoolShouldThrowException()  {
+        Course existCourse = new Course("TCI",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course = new Course("TCI",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course1 = new Course("EBUS",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course2 = new Course("T&H",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        courses.add(course);
+        courses.add(course1);
+        courses.add(course2);
+        School school = new School(validSchoolName, validOpeningDate,courses);
 
+        school.addCourseToSchool(existCourse);
     }
     @Test
     public void addUniqueCourseToSchoolShouldBeSuccess(){

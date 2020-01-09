@@ -8,7 +8,7 @@ public class Book {
     public ArrayList<Chapter> chapters= new ArrayList<>();
 
 
-    public Book(String author,String bookName) throws  IllegalArgumentException{
+    public Book(String author,String bookName) {
         if(author ==null||author ==""||bookName ==null||bookName ==""){
             throw  new IllegalArgumentException("Invalid BookName or Author");
         }
