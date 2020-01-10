@@ -5,6 +5,9 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class SchoolTest {
     private String validSchoolName = "Fontys UAS";
     private String inValidSchoolName = null;
@@ -33,7 +36,7 @@ public class SchoolTest {
         School school = new School(inValidSchoolName, inValidOpeningDate,courses);
     }
 
-    @Test(expected = Course.CourseDateException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void addExistCourseToSchoolShouldThrowException()  {
         Course existCourse = new Course("TCI",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
         Course course = new Course("TCI",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
