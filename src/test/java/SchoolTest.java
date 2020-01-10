@@ -1,5 +1,6 @@
 import School_Course.Course;
 import School_Course.School;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -51,11 +52,30 @@ public class SchoolTest {
     }
     @Test
     public void addUniqueCourseToSchoolShouldBeSuccess(){
+        Course newCourse = new Course("TCI",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course1 = new Course("EBUS",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course2 = new Course("T&H",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        courses.add(course1);
+        courses.add(course2);
+        School school = new School(validSchoolName, validOpeningDate,courses);
 
+        school.addCourseToSchool(newCourse);
+
+        Assert.assertEquals("New course is not added!",3,courses.size());
     }
     @Test
-    public void courseNameShouldBeGetByNameSuccessful(){
+    public void courseShouldBeGetByNameSuccessful(){
+        String nameOfCourseToFind = "TCI";
+        Course expectedResult = new Course("TCI",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course1 = new Course("EBUS",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        Course course2 = new Course("T&H",LocalDate.of(2019,8,9),LocalDate.of(2020,10,9));
+        courses.add(course1);
+        courses.add(course2);
+        School school = new School(validSchoolName, validOpeningDate,courses);
 
+        Course actualResult = school.getCourseByName(nameOfCourseToFind);
+
+        Assert.assertEquals("Can not find Course by Name", expectedResult,actualResult);
     }
     @Test
     public void allCourseNameShouldBeGetSuccessful(){

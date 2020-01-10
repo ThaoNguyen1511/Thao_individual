@@ -19,9 +19,12 @@ public class School {
          this.openingDate = openingDate;
          this.courses = courses;
     }
-
-    public Course getCourseByName(String name){
-        return null;
+    public Course getCourseByName(String courseName){
+        for(Course course : courses){
+            if(course.courseName == courseName)
+                return course;
+        }
+        return  null;
     }
     public ArrayList<String> getListOfCourseName(){
         ArrayList<String> listOfCourseNames = new ArrayList<>();
